@@ -4,33 +4,34 @@ import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import Home from './pages/home/Home';
 import Autor from './pages/autor/Autor';
 
-import './css/pure-min.css';
-import './css/side-menu.css';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div id="layout">
-          <a href="#menu" id="menuLink" className="menu-link">
-            <span></span>
-          </a>
-
-          <div id="menu">
-            <div className="pure-menu">
-              <a className="pure-menu-heading" href="http://localhost:3000">Company</a>
-
-              <ul className="pure-menu-list">
-                <li className="pure-menu-item"><NavLink to="/" exact className="pure-menu-link" activeClassName="pure-menu-selected">Home</NavLink></li>
-                <li className="pure-menu-item"><NavLink to="/autor" className="pure-menu-link" activeClassName="pure-menu-selected">Autores</NavLink></li>
-                <li className="pure-menu-item"><NavLink to="/livro" className="pure-menu-link" activeClassName="pure-menu-selected">Livros</NavLink></li>
+        <div>
+          <nav className="light-blue lighten-1">
+            <div className="nav-wrapper container">
+              <ul className="right hide-on-med-and-down">
+                <li><NavLink to="/" exact activeClassName="active">Home</NavLink></li>
+                <li><NavLink to="/autor" activeClassName="active">Autores</NavLink></li>
+                <li><NavLink to="/livro" activeClassName="active">Livros</NavLink></li>
               </ul>
-            </div>
-          </div>
 
-          <Route exact path="/" component={ Home } />
-          <Route path="/autor" component={ Autor } />
+              <ul id="nav-mobile" className="side-nav">
+                <li><NavLink to="/" exact activeClassName="active">Home</NavLink></li>
+                <li><NavLink to="/autor" activeClassName="active">Autores</NavLink></li>
+                <li><NavLink to="/livro" activeClassName="active">Livros</NavLink></li>
+              </ul>
+              <a href="" data-activates="nav-mobile" className="button-collapse"><i className="material-icons">menu</i></a>
+            </div>
+          </nav>
+
+          <div className="container">
+            <Route exact path="/" component={Home} />
+            <Route path="/autor" component={Autor} />
+          </div>
         </div>
       </Router>
     );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Button, Row, Input } from 'react-materialize';
 import axios from 'axios';
 import PubSub from 'pubsub-js';
-import MyInput from './../../components/form/MyInput';
 
 class AutorForm extends Component {
   constructor() {
@@ -39,7 +39,27 @@ class AutorForm extends Component {
 
   render() {
     return (
-      <div className="pure-form pure-form-aligned">
+      <Row>
+        <form className="col m9 l7" onSubmit={this.handleSubmit}>
+          <Input type="text"
+            s={12}
+            label="Nome"
+            value={this.state.nome}
+            onChange={this.handleChange} />
+          <Input type="email"
+            s={12}
+            label="E-mail"
+            value={this.state.email}
+            onChange={this.handleChange} />
+          <Input type="password"
+            s={12}
+            label="Senha"
+            value={this.state.senha}
+            onChange={this.handleChange} />
+            <Button type="submit">Enviar</Button>
+        </form>
+      </Row>
+      /*<div className="pure-form pure-form-aligned">
         <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit}>
           <MyInput id="nome" type="text" name="nome" label="Nome"
             value={this.state.nome}
@@ -55,7 +75,7 @@ class AutorForm extends Component {
             <button type="submit" className="pure-button pure-button-primary">Gravar</button>
           </div>
         </form>
-      </div>
+      </div>*/
     );
   }
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // Import React Table
 import ReactTable from "react-table";
 import "react-table/react-table.css";
+import "./AutorTable.css";
 
 class AutorTable extends Component {
   constructor() {
