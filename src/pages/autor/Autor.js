@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import PubSub from 'pubsub-js';
 
-import AutorTable from './AutorTable';
+import PaginationTable from './../../components/PaginationTable';
 import AutorForm from './AutorForm';
 
 class Autor extends Component {
@@ -28,14 +28,25 @@ class Autor extends Component {
   render() {
     return (
       <div>
-        <div className="header">
-          <h1>Cadastro de Autores</h1>
-        </div>
-        <div className="content" id="content">
-          <AutorForm />
-          <br />
-          <AutorTable lista={this.state.lista} />
-        </div>
+        <h4>Cadastro de Autores</h4>
+        <AutorForm />
+        <br />
+        <PaginationTable lista={this.state.lista} columns={
+          [
+            {
+              Header: "ID",
+              accessor: "id"
+            },
+            {
+              Header: "Nome",
+              accessor: "nome"
+            },
+            {
+              Header: "E-mail",
+              accessor: "email"
+            }
+          ]
+        } />
       </div>
     );
   }

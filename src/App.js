@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
 import Home from './pages/home/Home';
 import Autor from './pages/autor/Autor';
+import Livro from './pages/livro/Livro';
 
 import './App.css';
 
@@ -31,6 +32,7 @@ class App extends Component {
           <div className="container">
             <Route exact path="/" component={Home} />
             <Route path="/autor" component={Autor} />
+            <Route path="/livro" component={Livro} />
           </div>
         </div>
       </Router>

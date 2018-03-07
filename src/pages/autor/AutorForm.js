@@ -14,6 +14,7 @@ class AutorForm extends Component {
   handleChange(e) {
     const name = e.target.name;
     const value = e.target.value;
+    console.log(name + ": " + value);
     this.setState({ [name]: value });
   }
 
@@ -42,16 +43,28 @@ class AutorForm extends Component {
       <Row>
         <form className="col m9 l7" onSubmit={this.handleSubmit}>
           <Input type="text"
+            required
+            pattern=".{5,}"
+            name="nome"
+            className="validate"
             s={12}
             label="Nome"
             value={this.state.nome}
             onChange={this.handleChange} />
           <Input type="email"
+            required
+            pattern=".{8,}"
+            name="email"
+            className="validate"
             s={12}
             label="E-mail"
             value={this.state.email}
             onChange={this.handleChange} />
           <Input type="password"
+            required
+            pattern=".{5,}"
+            name="senha"
+            className="validate"
             s={12}
             label="Senha"
             value={this.state.senha}
@@ -59,23 +72,6 @@ class AutorForm extends Component {
             <Button type="submit">Enviar</Button>
         </form>
       </Row>
-      /*<div className="pure-form pure-form-aligned">
-        <form className="pure-form pure-form-aligned" onSubmit={this.handleSubmit}>
-          <MyInput id="nome" type="text" name="nome" label="Nome"
-            value={this.state.nome}
-            onChange={this.handleChange} />
-          <MyInput id="email" type="text" name="email" label="E-mail"
-            value={this.state.email}
-            onChange={this.handleChange} />
-          <MyInput id="senha" type="password" name="senha" label="Senha"
-            value={this.state.senha}
-            onChange={this.handleChange} />
-          <div className="pure-control-group">
-            <label></label>
-            <button type="submit" className="pure-button pure-button-primary">Gravar</button>
-          </div>
-        </form>
-      </div>*/
     );
   }
 }

@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 // Import React Table
 import ReactTable from "react-table";
 import "react-table/react-table.css";
-import "./AutorTable.css";
 
-class AutorTable extends Component {
+class PaginationTable extends Component {
   constructor() {
     super();
     this.state = {loadingText: 'Loading.'};
@@ -34,22 +33,8 @@ class AutorTable extends Component {
       <div>
         <ReactTable
           data={this.props.lista}
-          columns={[
-            {
-              Header: "ID",
-              accessor: "id"
-            },
-            {
-              Header: "Nome",
-              accessor: "nome"
-            },
-            {
-              Header: "E-mail",
-              accessor: "email"
-            }
-          ]}
+          columns={this.props.columns}
           defaultPageSize={10}
-          className="-striped -highlight"
           noDataText={this.state.loadingText}
         />
       </div>
@@ -57,4 +42,4 @@ class AutorTable extends Component {
   }
 }
 
-export default AutorTable;
+export default PaginationTable;
