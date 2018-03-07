@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import PubSub from 'pubsub-js';
 
+import ErrorsHandler from './../../ErrorsHandler';
 import LivroForm from './LivroForm';
 import PaginationTable from './../../components/PaginationTable';
 
@@ -17,7 +18,7 @@ class Livro extends Component {
         this.setState({ lista: response.data.reverse() });
       })
       .catch((error) => {
-        console.log(error);
+        new ErrorsHandler().showError(error);
       });
 
     PubSub.subscribe('atualiza-lista-livros', (topico, novaLista) => {

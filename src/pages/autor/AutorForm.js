@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Row, Input } from 'react-materialize';
 import axios from 'axios';
 import PubSub from 'pubsub-js';
+import ErrorsHandler from './../../ErrorsHandler';
 
 class AutorForm extends Component {
   constructor() {
@@ -14,7 +15,6 @@ class AutorForm extends Component {
   handleChange(e) {
     const name = e.target.name;
     const value = e.target.value;
-    console.log(name + ": " + value);
     this.setState({ [name]: value });
   }
 
@@ -35,6 +35,7 @@ class AutorForm extends Component {
       })
       .catch((error) => {
         console.log(error);
+        new ErrorsHandler().formError(error);
       });
   }
 

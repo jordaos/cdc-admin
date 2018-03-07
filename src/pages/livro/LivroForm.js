@@ -6,7 +6,7 @@ import PubSub from 'pubsub-js';
 class LivroForm extends Component {
   constructor() {
     super();
-    this.state = { titulo: '', preco: '', autorId: '' };
+    this.state = { titulo: '', preco: '', autorId: 0 };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -58,12 +58,12 @@ class LivroForm extends Component {
             label="Preço"
             value={this.state.preco}
             onChange={this.handleChange} />
-          <Input s={12} type="select" label="Materialize Select"
+          <Input s={12} type="select" 
+            label="Autor"
             onChange={this.handleChange}
-            defaultValue="2"
             value={this.state.autorId}
             name="autorId">
-            <option value="1">Selecione</option>
+            <option value="0">Selecione</option>
             {
               this.props.autores.map((autor) => {
                 return (
